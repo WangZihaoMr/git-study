@@ -1,0 +1,43 @@
+git安装步骤：
+1 安装git 百度官网搜索下载
+2 安装：安装在C盘 一路next最后finish完成安装
+3 第一次初始需要配置
+git config --global user.name "name"（名字）
+git config --global user.email "email@example.com"（邮箱）
+4 生成钥匙
+ssh-keygen -t rsa -C "自己邮箱"　
+5 把把用户文件夹里的.ssh里的id_rsa.pub 代码复制（不能改动）
+6 把公钥添加到远程个人账户的ssh公钥里就可以了
+7 常用的git命令
+	本地初始化仓库  git  init
+	把远程仓库地址与本地仓库连接  git   remote   add   origin   git@xxx.git（git里面生成的直接复制就好）
+	查看本地仓库的状态 git  status
+	先把文件存入暂存区 git  add   .  表示把当前目录中所有的文件都存入暂存区
+	从暂存区存入到本地仓库 git  commit  -m  '写一句话，表示本次操作的内容'
+ 	从本地仓库上传到远程仓库
+      	如果远程仓库是空的，我们第一次上传需要使用这个命令
+      	git  push -u origin master
+      	如果不是第一次，或者仓库里有内容，我们就直接push就可以了
+      	git push
+
+8 平常初始化过后就可以直接使用了不用重复步骤
+    git  add .
+    git  commit -m '日志'
+    git  push
+
+9  克隆
+9.1.1克隆：git  clone 地址
+9.1.2 克隆的仓库默认是和远程仓库关联好的，不需要git  remote add ...操作了
+9.13. git  add .
+9.14. git commit -m 'log'
+9.15. git push  克隆的仓库直接用push
+9.16. git pull  从远程仓库获取最新的代码（拉取最新代码）
+
+10 更改远程地址        ——当远程地址发生变化，或绑定错误
+	修改命令：
+		1. 直接修改 git remote set-url origin <url>
+		2.先删后加
+			git remote rm origin
+			git remote add origin [url]
+		3.直接修改.git/config 文件里的url地址【非常不推荐这种】
+
